@@ -18,8 +18,8 @@ public class ChannelsTestScript {
 ChannelsActions channels=new ChannelsActions();
 PropertyFileUtils propertyFileUtils=new PropertyFileUtils();
 CreateChannelResponse createChannelResponse=new CreateChannelResponse();
-private String channelName;
-private String newChannelName;
+private  String channelName;
+private  String newChannelName;
 
 //Variable to store property key value pair in MAP.
 Map<String ,String> propertyMap=new HashMap<>();
@@ -53,7 +53,7 @@ public void joinChannel()
 	Assert.assertEquals(joinChannelResponse.getOk().booleanValue(), true,"User joined the channel");
 }
 
-@Test(priority=3,description = "Rename the channel")
+@Test(priority=3,description = "Rename the channel" )
 public void renameChannel()
 {
 	 channelId=channels.getChannelIdBasedOnChannelName(channelName);
@@ -61,7 +61,7 @@ public void renameChannel()
 	Assert.assertEquals(createChannelResponse.getOk().booleanValue(), true,"Channel is renamed");
 }
 
-@Test(priority=4,description = "Validate The renaming Of Channel",dependsOnMethods ="renameChannel" )
+@Test(priority=4,description = "Validate The renaming Of Channel",dependsOnMethods ="renameChannel")
 public void validateRenameOfaChannel()
 {
 	
@@ -71,15 +71,13 @@ public void validateRenameOfaChannel()
 @Test(priority = 5,description = "Archive the channel")
 public void archiveChannel()
 {
-	 channelId=channels.getChannelIdBasedOnChannelName(newChannelName);
+	channelId=channels.getChannelIdBasedOnChannelName(newChannelName);
 	Response response=channels.postArchiveChannelsRequest(channelId);
 	Assert.assertEquals(response.getBody().jsonPath().getBoolean("ok"), true,"Channel is archievd");
 }
 @Test(priority=6,description = "Verify the channel is archived from channel list")
 public void verifyArchiveChannel()
-{
-	
-	Assert.assertEquals(channels.isChannelArchived(newChannelName), true,"Channel is Archived");
-	
+{	
+	Assert.assertEquals(channels.isChannelArchived(newChannelName), "true","Channel is Archived");
 }
 }

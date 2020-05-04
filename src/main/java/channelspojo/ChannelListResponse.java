@@ -1,533 +1,366 @@
-package channelspojo;
 
-import com.fasterxml.jackson.annotation.*;
+
+package channelspojo;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-"ok",
-"channels",
-"response_metadata"
-})
-public class ChannelListResponse {
-
-@JsonProperty("ok")
-private Boolean ok;
-@JsonProperty("channels")
-private List<Channel> channels = null;
-@JsonProperty("response_metadata")
-private ResponseMetadata responseMetadata;
-@JsonIgnore
-private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-@JsonProperty("ok")
-public Boolean getOk() {
-return ok;
-}
-
-@JsonProperty("ok")
-public void setOk(Boolean ok) {
-this.ok = ok;
-}
-
-@JsonProperty("channels")
-public List<Channel> getChannels() {
-return channels;
-}
-
-@JsonProperty("channels")
-public void setChannels(List<Channel> channels) {
-this.channels = channels;
-}
-
-@JsonProperty("response_metadata")
-public ResponseMetadata getResponseMetadata() {
-return responseMetadata;
-}
-
-@JsonProperty("response_metadata")
-public void setResponseMetadata(ResponseMetadata responseMetadata) {
-this.responseMetadata = responseMetadata;
-}
-
-@JsonAnyGetter
-public Map<String, Object> getAdditionalProperties() {
-return this.additionalProperties;
-}
-
-@JsonAnySetter
-public void setAdditionalProperty(String name, Object value) {
-this.additionalProperties.put(name, value);
-}
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-"id",
-"name",
-"is_channel",
-"is_group",
-"is_im",
-"created",
-"creator",
-"is_archived",
-"is_general",
-"unlinked",
-"name_normalized",
-"is_shared",
-"is_ext_shared",
-"is_org_shared",
-"pending_shared",
-"is_pending_ext_shared",
-"is_member",
-"is_private",
-"is_mpim",
-"topic",
-"purpose",
-"previous_names",
-"num_members"
-})
-public class Channel {
-
-@JsonProperty("id")
-private String id;
-@JsonProperty("name")
-private String name;
-@JsonProperty("is_channel")
-private Boolean isChannel;
-@JsonProperty("is_group")
-private Boolean isGroup;
-@JsonProperty("is_im")
-private Boolean isIm;
-@JsonProperty("created")
-private Integer created;
-@JsonProperty("creator")
-private String creator;
-@JsonProperty("is_archived")
-private Boolean isArchived;
-@JsonProperty("is_general")
-private Boolean isGeneral;
-@JsonProperty("unlinked")
-private Integer unlinked;
-@JsonProperty("name_normalized")
-private String nameNormalized;
-@JsonProperty("is_shared")
-private Boolean isShared;
-@JsonProperty("is_ext_shared")
-private Boolean isExtShared;
-@JsonProperty("is_org_shared")
-private Boolean isOrgShared;
-@JsonProperty("pending_shared")
-private List<Object> pendingShared = null;
-@JsonProperty("is_pending_ext_shared")
-private Boolean isPendingExtShared;
-@JsonProperty("is_member")
-private Boolean isMember;
-@JsonProperty("is_private")
-private Boolean isPrivate;
-@JsonProperty("is_mpim")
-private Boolean isMpim;
-@JsonProperty("topic")
-private Topic topic;
-@JsonProperty("purpose")
-private Purpose purpose;
-@JsonProperty("previous_names")
-private List<Object> previousNames = null;
-@JsonProperty("num_members")
-private Integer numMembers;
-@JsonIgnore
-private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-@JsonProperty("id")
-public String getId() {
-return id;
-}
-
-@JsonProperty("id")
-public void setId(String id) {
-this.id = id;
-}
-
-@JsonProperty("name")
-public String getName() {
-return name;
-}
-
-@JsonProperty("name")
-public void setName(String name) {
-this.name = name;
-}
-
-@JsonProperty("is_channel")
-public Boolean getIsChannel() {
-return isChannel;
-}
-
-@JsonProperty("is_channel")
-public void setIsChannel(Boolean isChannel) {
-this.isChannel = isChannel;
-}
-
-@JsonProperty("is_group")
-public Boolean getIsGroup() {
-return isGroup;
-}
-
-@JsonProperty("is_group")
-public void setIsGroup(Boolean isGroup) {
-this.isGroup = isGroup;
-}
-
-@JsonProperty("is_im")
-public Boolean getIsIm() {
-return isIm;
-}
-
-@JsonProperty("is_im")
-public void setIsIm(Boolean isIm) {
-this.isIm = isIm;
-}
-
-@JsonProperty("created")
-public Integer getCreated() {
-return created;
-}
-
-@JsonProperty("created")
-public void setCreated(Integer created) {
-this.created = created;
-}
-
-@JsonProperty("creator")
-public String getCreator() {
-return creator;
-}
-
-@JsonProperty("creator")
-public void setCreator(String creator) {
-this.creator = creator;
-}
-
-@JsonProperty("is_archived")
-public Boolean getIsArchived() {
-return isArchived;
-}
-
-@JsonProperty("is_archived")
-public void setIsArchived(Boolean isArchived) {
-this.isArchived = isArchived;
-}
-
-@JsonProperty("is_general")
-public Boolean getIsGeneral() {
-return isGeneral;
-}
-
-@JsonProperty("is_general")
-public void setIsGeneral(Boolean isGeneral) {
-this.isGeneral = isGeneral;
-}
-
-@JsonProperty("unlinked")
-public Integer getUnlinked() {
-return unlinked;
-}
-
-@JsonProperty("unlinked")
-public void setUnlinked(Integer unlinked) {
-this.unlinked = unlinked;
-}
-
-@JsonProperty("name_normalized")
-public String getNameNormalized() {
-return nameNormalized;
-}
-
-@JsonProperty("name_normalized")
-public void setNameNormalized(String nameNormalized) {
-this.nameNormalized = nameNormalized;
-}
-
-@JsonProperty("is_shared")
-public Boolean getIsShared() {
-return isShared;
-}
-
-@JsonProperty("is_shared")
-public void setIsShared(Boolean isShared) {
-this.isShared = isShared;
-}
-
-@JsonProperty("is_ext_shared")
-public Boolean getIsExtShared() {
-return isExtShared;
-}
-
-@JsonProperty("is_ext_shared")
-public void setIsExtShared(Boolean isExtShared) {
-this.isExtShared = isExtShared;
-}
 
-@JsonProperty("is_org_shared")
-public Boolean getIsOrgShared() {
-return isOrgShared;
-}
-
-@JsonProperty("is_org_shared")
-public void setIsOrgShared(Boolean isOrgShared) {
-this.isOrgShared = isOrgShared;
-}
-
-@JsonProperty("pending_shared")
-public List<Object> getPendingShared() {
-return pendingShared;
-}
-
-@JsonProperty("pending_shared")
-public void setPendingShared(List<Object> pendingShared) {
-this.pendingShared = pendingShared;
-}
-
-@JsonProperty("is_pending_ext_shared")
-public Boolean getIsPendingExtShared() {
-return isPendingExtShared;
-}
-
-@JsonProperty("is_pending_ext_shared")
-public void setIsPendingExtShared(Boolean isPendingExtShared) {
-this.isPendingExtShared = isPendingExtShared;
-}
-
-@JsonProperty("is_member")
-public Boolean getIsMember() {
-return isMember;
-}
-
-@JsonProperty("is_member")
-public void setIsMember(Boolean isMember) {
-this.isMember = isMember;
-}
-
-@JsonProperty("is_private")
-public Boolean getIsPrivate() {
-return isPrivate;
-}
-
-@JsonProperty("is_private")
-public void setIsPrivate(Boolean isPrivate) {
-this.isPrivate = isPrivate;
-}
-
-@JsonProperty("is_mpim")
-public Boolean getIsMpim() {
-return isMpim;
-}
-
-@JsonProperty("is_mpim")
-public void setIsMpim(Boolean isMpim) {
-this.isMpim = isMpim;
-}
-
-@JsonProperty("topic")
-public Topic getTopic() {
-return topic;
-}
-
-@JsonProperty("topic")
-public void setTopic(Topic topic) {
-this.topic = topic;
-}
-
-@JsonProperty("purpose")
-public Purpose getPurpose() {
-return purpose;
-}
-
-@JsonProperty("purpose")
-public void setPurpose(Purpose purpose) {
-this.purpose = purpose;
-}
-
-@JsonProperty("previous_names")
-public List<Object> getPreviousNames() {
-return previousNames;
-}
+public class ChannelListResponse
+{
+    private Channels[] channels;
 
-@JsonProperty("previous_names")
-public void setPreviousNames(List<Object> previousNames) {
-this.previousNames = previousNames;
-}
-
-@JsonProperty("num_members")
-public Integer getNumMembers() {
-return numMembers;
-}
-
-@JsonProperty("num_members")
-public void setNumMembers(Integer numMembers) {
-this.numMembers = numMembers;
-}
-
-@JsonAnyGetter
-public Map<String, Object> getAdditionalProperties() {
-return this.additionalProperties;
-}
-
-@JsonAnySetter
-public void setAdditionalProperty(String name, Object value) {
-this.additionalProperties.put(name, value);
-}
-
-}
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-"value",
-"creator",
-"last_set"
-})
-public class Purpose {
-
-@JsonProperty("value")
-private String value;
-@JsonProperty("creator")
-private String creator;
-@JsonProperty("last_set")
-private Integer lastSet;
-@JsonIgnore
-private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-@JsonProperty("value")
-public String getValue() {
-return value;
-}
+    private String ok;
 
-@JsonProperty("value")
-public void setValue(String value) {
-this.value = value;
-}
+    public Channels[] getChannels ()
+    {
+        return channels;
+    }
 
-@JsonProperty("creator")
-public String getCreator() {
-return creator;
-}
+    public void setChannels (Channels[] channels)
+    {
+        this.channels = channels;
+    }
 
-@JsonProperty("creator")
-public void setCreator(String creator) {
-this.creator = creator;
-}
+    public String getOk ()
+    {
+        return ok;
+    }
 
-@JsonProperty("last_set")
-public Integer getLastSet() {
-return lastSet;
-}
+    public void setOk (String ok)
+    {
+        this.ok = ok;
+    }
 
-@JsonProperty("last_set")
-public void setLastSet(Integer lastSet) {
-this.lastSet = lastSet;
-}
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [channels = "+channels+", ok = "+ok+"]";
+    }
+public class Topic
+{
+    private String last_set;
 
-@JsonAnyGetter
-public Map<String, Object> getAdditionalProperties() {
-return this.additionalProperties;
-}
+    private String creator;
 
-@JsonAnySetter
-public void setAdditionalProperty(String name, Object value) {
-this.additionalProperties.put(name, value);
-}
+    private String value;
 
-}
+    public String getLast_set ()
+    {
+        return last_set;
+    }
 
+    public void setLast_set (String last_set)
+    {
+        this.last_set = last_set;
+    }
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-"next_cursor"
-})
-public class ResponseMetadata {
+    public String getCreator ()
+    {
+        return creator;
+    }
 
-@JsonProperty("next_cursor")
-private String nextCursor;
-@JsonIgnore
-private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    public void setCreator (String creator)
+    {
+        this.creator = creator;
+    }
 
-@JsonProperty("next_cursor")
-public String getNextCursor() {
-return nextCursor;
-}
+    public String getValue ()
+    {
+        return value;
+    }
 
-@JsonProperty("next_cursor")
-public void setNextCursor(String nextCursor) {
-this.nextCursor = nextCursor;
-}
+    public void setValue (String value)
+    {
+        this.value = value;
+    }
 
-@JsonAnyGetter
-public Map<String, Object> getAdditionalProperties() {
-return this.additionalProperties;
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [last_set = "+last_set+", creator = "+creator+", value = "+value+"]";
+    }
 }
+public class Channels
+{
+    private String is_private;
 
-@JsonAnySetter
-public void setAdditionalProperty(String name, Object value) {
-this.additionalProperties.put(name, value);
-}
+    private String creator;
 
-}
+    private String is_member;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-"value",
-"creator",
-"last_set"
-})
-public class Topic {
-
-@JsonProperty("value")
-private String value;
-@JsonProperty("creator")
-private String creator;
-@JsonProperty("last_set")
-private Integer lastSet;
-@JsonIgnore
-private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-@JsonProperty("value")
-public String getValue() {
-return value;
-}
+    private String is_mpim;
 
-@JsonProperty("value")
-public void setValue(String value) {
-this.value = value;
-}
+    private Purpose purpose;
 
-@JsonProperty("creator")
-public String getCreator() {
-return creator;
-}
+    private String created;
 
-@JsonProperty("creator")
-public void setCreator(String creator) {
-this.creator = creator;
-}
+    private String name_normalized;
 
-@JsonProperty("last_set")
-public Integer getLastSet() {
-return lastSet;
-}
+    private String unlinked;
 
-@JsonProperty("last_set")
-public void setLastSet(Integer lastSet) {
-this.lastSet = lastSet;
-}
+    private String is_archived;
 
-@JsonAnyGetter
-public Map<String, Object> getAdditionalProperties() {
-return this.additionalProperties;
-}
+    private String is_channel;
 
-@JsonAnySetter
-public void setAdditionalProperty(String name, Object value) {
-this.additionalProperties.put(name, value);
-}
+    private String is_general;
 
-}
-}
+    private String is_shared;
+
+    private String[] members;
+
+    private String num_members;
+
+    private String name;
+
+    private Topic topic;
+
+    private String id;
+
+    private String[] previous_names;
+
+    private String is_org_shared;
+
+    public String getIs_private ()
+    {
+        return is_private;
+    }
+
+    public void setIs_private (String is_private)
+    {
+        this.is_private = is_private;
+    }
+
+    public String getCreator ()
+    {
+        return creator;
+    }
+
+    public void setCreator (String creator)
+    {
+        this.creator = creator;
+    }
+
+    public String getIs_member ()
+    {
+        return is_member;
+    }
+
+    public void setIs_member (String is_member)
+    {
+        this.is_member = is_member;
+    }
+
+    public String getIs_mpim ()
+    {
+        return is_mpim;
+    }
+
+    public void setIs_mpim (String is_mpim)
+    {
+        this.is_mpim = is_mpim;
+    }
+
+    public Purpose getPurpose ()
+    {
+        return purpose;
+    }
+
+    public void setPurpose (Purpose purpose)
+    {
+        this.purpose = purpose;
+    }
+
+    public String getCreated ()
+    {
+        return created;
+    }
+
+    public void setCreated (String created)
+    {
+        this.created = created;
+    }
+
+    public String getName_normalized ()
+    {
+        return name_normalized;
+    }
+
+    public void setName_normalized (String name_normalized)
+    {
+        this.name_normalized = name_normalized;
+    }
+
+    public String getUnlinked ()
+    {
+        return unlinked;
+    }
+
+    public void setUnlinked (String unlinked)
+    {
+        this.unlinked = unlinked;
+    }
+
+    public String getIs_archived ()
+    {
+        return is_archived;
+    }
+
+    public void setIs_archived (String is_archived)
+    {
+        this.is_archived = is_archived;
+    }
+
+    public String getIs_channel ()
+    {
+        return is_channel;
+    }
+
+    public void setIs_channel (String is_channel)
+    {
+        this.is_channel = is_channel;
+    }
+
+    public String getIs_general ()
+    {
+        return is_general;
+    }
+
+    public void setIs_general (String is_general)
+    {
+        this.is_general = is_general;
+    }
+
+    public String getIs_shared ()
+    {
+        return is_shared;
+    }
+
+    public void setIs_shared (String is_shared)
+    {
+        this.is_shared = is_shared;
+    }
+
+    public String[] getMembers ()
+    {
+        return members;
+    }
+
+    public void setMembers (String[] members)
+    {
+        this.members = members;
+    }
+
+    public String getNum_members ()
+    {
+        return num_members;
+    }
+
+    public void setNum_members (String num_members)
+    {
+        this.num_members = num_members;
+    }
+
+    public String getName ()
+    {
+        return name;
+    }
+
+    public void setName (String name)
+    {
+        this.name = name;
+    }
+
+    public Topic getTopic ()
+    {
+        return topic;
+    }
+
+    public void setTopic (Topic topic)
+    {
+        this.topic = topic;
+    }
+
+    public String getId ()
+    {
+        return id;
+    }
+
+    public void setId (String id)
+    {
+        this.id = id;
+    }
+
+    public String[] getPrevious_names ()
+    {
+        return previous_names;
+    }
+
+    public void setPrevious_names (String[] previous_names)
+    {
+        this.previous_names = previous_names;
+    }
+
+    public String getIs_org_shared ()
+    {
+        return is_org_shared;
+    }
+
+    public void setIs_org_shared (String is_org_shared)
+    {
+        this.is_org_shared = is_org_shared;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [is_private = "+is_private+", creator = "+creator+", is_member = "+is_member+", is_mpim = "+is_mpim+", purpose = "+purpose+", created = "+created+", name_normalized = "+name_normalized+", unlinked = "+unlinked+", is_archived = "+is_archived+", is_channel = "+is_channel+", is_general = "+is_general+", is_shared = "+is_shared+", members = "+members+", num_members = "+num_members+", name = "+name+", topic = "+topic+", id = "+id+", previous_names = "+previous_names+", is_org_shared = "+is_org_shared+"]";
+    }
+}
+public class Purpose
+{
+    private String last_set;
+
+    private String creator;
+
+    private String value;
+
+    public String getLast_set ()
+    {
+        return last_set;
+    }
+
+    public void setLast_set (String last_set)
+    {
+        this.last_set = last_set;
+    }
+
+    public String getCreator ()
+    {
+        return creator;
+    }
+
+    public void setCreator (String creator)
+    {
+        this.creator = creator;
+    }
+
+    public String getValue ()
+    {
+        return value;
+    }
+
+    public void setValue (String value)
+    {
+        this.value = value;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [last_set = "+last_set+", creator = "+creator+", value = "+value+"]";
+    }
+}
+
+}
+	

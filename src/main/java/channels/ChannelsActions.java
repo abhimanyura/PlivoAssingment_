@@ -1,6 +1,7 @@
 package channels;
 
 import channelspojo.ChannelListResponse;
+import channelspojo.ChannelListResponse.Channels;
 import channelspojo.CreateChannelResponse;
 import channelspojo.JoinChannelResponse;
 import io.restassured.http.ContentType;
@@ -10,6 +11,8 @@ import utils.PropertyFileUtils;
 import utils.RestManager;
 import utils.RestRequest;
 import java.util.HashMap;
+
+import org.checkerframework.checker.units.qual.Length;
 
 public class ChannelsActions {
 
@@ -156,15 +159,15 @@ public class ChannelsActions {
 	public String getChannelIdBasedOnChannelName(String channelName)
 	{
 		ChannelListResponse channelListResponse=getChannelsListRequest();
-		ChannelListResponse.Channel channelList=channelListResponse.new Channel();
+		ChannelListResponse.Channels channelList=channelListResponse.new Channels();
 		String channelId="";
 		System.out.println("passed channel name"+channelName);
-		for(int i=0;i<channelListResponse.getChannels().size();i++)
+		for(int i=0;i<channelListResponse.getChannels().length;i++)
 		{
-			channelList=channelListResponse.getChannels().get(i);
+			channelList=channelListResponse.getChannels()[i];
 			if(channelList.getName().contentEquals(channelName))
 			{
-				channelId=channelListResponse.getChannels().get(i).getId();
+				channelId=channelList.getId();
 				break;
 			}
 		}
@@ -180,10 +183,12 @@ public class ChannelsActions {
 	{
 		boolean found=false;
 		ChannelListResponse channelListResponse=getChannelsListRequest();
-		ChannelListResponse.Channel channelList=channelListResponse.new Channel();
-		for(int i=0;i<channelListResponse.getChannels().size();i++)
+		ChannelListResponse.Channels channelList=channelListResponse.new Channels();
+		String channelId="";
+		System.out.println("passed channel name"+channelName);
+		for(int i=0;i<channelListResponse.getChannels().length;i++)
 		{
-			channelList=channelListResponse.getChannels().get(i);
+			channelList=channelListResponse.getChannels()[i];
 			if(channelList.getName().contentEquals(channelName))
 			{
 				found=true;
@@ -197,17 +202,18 @@ public class ChannelsActions {
 	 * @param channelName
 	 * @return
 	 */
-	public boolean isChannelArchived(String channelName)
+	public String isChannelArchived(String channelName)
 	{
-		boolean found=false;
+		String found="";
 		ChannelListResponse channelListResponse=getChannelsListRequest();
-		ChannelListResponse.Channel channelList=channelListResponse.new Channel();
-		for(int i=0;i<channelListResponse.getChannels().size();i++)
+		Channels channelObj=channelListResponse.new Channels();
+		for(int i=0;i<channelListResponse.getChannels().length;i++)
 		{
-			channelList=channelListResponse.getChannels().get(i);
-			if(channelList.getName().contentEquals(channelName))
+			channelObj=channelListResponse.getChannels()[i];
+			if(channelObj.getName().contentEquals(channelName))
 			{
-				return channelList.getIsArchived();
+				found =channelObj.getIs_archived();
+				break;
 			}
 		}
 		return found;
